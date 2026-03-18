@@ -1,17 +1,21 @@
 <?php
 session_start();
 
-if($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $amount = $_POST['amount'] ?? null;
+$error = null;
 
-  if ($amount !== null && $amount > 0) {
-    $_SESSION['objectif_montant'] = $amount;
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $amount = $_POST['amount'] ?? null;
 
-    header('Location: date_debut.php');
-    exit();
-  } else {
-    // A faire : message d'erreur montant invalide
-  }
+    if ($amount === null || $amount === '' || $amount <= 0) {
+        $error = "Merci d'indiquer un montant supérieur à 0.";
+    } else {
+        // On peut aussi forcer un format numérique propre
+        $amount = (float) $amount;
+        $_SESSION['objectif_montant'] = $amount;
+
+        header('Location: date_debut.php');
+        exit;
+    }
 }
 ?>
 
@@ -28,6 +32,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   <form action="objectif.php" method="post">
     <input type="number" id="amount" name="amount" min="1" step="0.01" required>
     <span>€</span>
+
+    <?php if ($error !== null): ?>
+        <p style="color: red;">
+            <?php echo htmlspecialchars($error); ?>
+        </p>
+    <?php endif; ?>
 
     <button type="submit">Continuer</button>
   </form>

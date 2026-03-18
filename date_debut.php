@@ -7,26 +7,23 @@ if(!isset($_SESSION['objectif_montant'])) {
   exit();
 }
 
+$error = null;
+
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
   $start_month = $_POST['start_month'] ?? null;
 
   if (!empty($start_month)) {
-    $_SESSION['date_debut_mois'] = $start_month;
+    $error = "Merci d'indiquer un mois de début.";
+    } else {
+        if (!preg_match('/^(0[1-9]|1[0-2])\/[0-9]{4}$/', $start_month)) {
+            $error = "Format invalide. Utilise le format MM/AAAA (ex : 03/2026).";
+        } else {
+            $_SESSION['date_debut_mois'] = $start_month;
 
-    // A faire : gérer le cas de date passée + épargne déjà réalisée
-
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $start_month = $_POST['start_month'] ?? null;
-
-    if (!empty($start_month)) {
-        $_SESSION['date_debut_mois'] = $start_month;
-
-        header('Location: date_fin.php');
-        exit;
+            header('Location: date_fin.php');
+            exit;
+        }
     }
-}
-
-  }
 }
 ?>
 
@@ -46,6 +43,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   <form action="date_debut.php" method="post">
     <label for="start_month">Mois de début</label>
     <input type="text" id="start_month" name="start_month" required placeholder="03/2026" pattern="^(0[1-9]|1[0-2])\/[0-9]{4}$">
+
+    <?php if ($error !== null): ?>
+        <p style="color: red;">
+            <?php echo htmlspecialchars($error); ?>
+        </p>
+    <?php endif; ?>
 
     <button type="submit">Continuer</button>
   </form>
