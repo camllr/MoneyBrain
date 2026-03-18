@@ -7,7 +7,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   if ($amount !== null && $amount > 0) {
     $_SESSION['objectif_montant'] = $amount;
 
-    // A faire : redirection vers la page suivant : date_debut.php
+    header('Location: date_debut.php');
+    exit();
   } else {
     // A faire : message d'erreur montant invalide
   }
