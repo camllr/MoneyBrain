@@ -15,7 +15,16 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // A faire : gérer le cas de date passée + épargne déjà réalisée
 
-    // A faire : redirection vers la page suivant : date_fin.php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $start_month = $_POST['start_month'] ?? null;
+
+    if (!empty($start_month)) {
+        $_SESSION['date_debut_mois'] = $start_month;
+
+        header('Location: date_fin.php');
+        exit;
+    }
+}
 
   }
 }
@@ -32,17 +41,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   
   <h1>Quand souhaites-tu commencer ?</h1>
 
+  <p>Objectif actuel : <?php echo htmlspecialchars($_SESSION['objectif_montant']); ?>€</p>
+
   <form action="date_debut.php" method="post">
     <label for="start_month">Mois de début</label>
     <input type="text" id="start_month" name="start_month" required placeholder="03/2026" pattern="^(0[1-9]|1[0-2])\/[0-9]{4}$">
 
     <button type="submit">Continuer</button>
   </form>
-
-  <?php
-    if (isset($_SESSION['date_debut_mois'])) {
-        echo '<p>Mois de début stocké en session : ' . htmlspecialchars($_SESSION['date_debut_mois']) . '</p>';
-    }
-    ?>
 </body>
 </html>
