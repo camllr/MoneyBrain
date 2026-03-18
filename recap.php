@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+require_once 'logic.php';
+
 if (
     !isset(
         $_SESSION['objectif_montant'],
@@ -20,13 +22,7 @@ $error = null;
 $nb_months = null;
 $monthly_needed = null;
 
-[$start_month, $start_year] = explode('/', $start);
-[$end_month,   $end_year]   = explode('/', $end);
-
-$start_total = (int)$start_year * 12 + (int)$start_month;
-$end_total   = (int)$end_year   * 12 + (int)$end_month;
-
-$nb_months = $end_total - $start_total + 1;
+$nb_months = calculerNombreMois($start, $end, true);
 
 if ($nb_months <= 0) {
     $error = "Problème de calcul sur les dates. Merci de vérifier ton objectif.";

@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+require_once 'logic.php';
+
 if (!isset($_SESSION['objectif_montant'], $_SESSION['date_debut_mois'])) {
     header('Location: objectif.php');
     exit;
@@ -14,13 +16,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($end_month)) {
         $start = $_SESSION['date_debut_mois'];
 
-        [$start_month, $start_year] = explode('/', $start);
-        [$end_month_num, $end_year] = explode('/', $end_month);
+        $nb_months = calculerNombreMois($start, $end_month, true);
 
-        $start_total = (int)$start_year * 12 + (int)$start_month;
-        $end_total   = (int)$end_year * 12 + (int)$end_month_num;
-
-        if ($end_total < $start_total) {
+        if ($nb_months === null) {
             $error = "Le mois de fin doit être postérieur ou égal au mois de début.";
         } else {
             $_SESSION['date_fin_mois'] = $end_month;
