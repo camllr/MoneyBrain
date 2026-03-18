@@ -25,7 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             $_SESSION['date_fin_mois'] = $end_month;
 
-            // A faire : redirection vers la page suivant : recap.php
+            header('Location: recap.php');
+            exit;
         }
     }
 }

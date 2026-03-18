@@ -12,7 +12,7 @@ $error = null;
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
   $start_month = $_POST['start_month'] ?? null;
 
-  if (!empty($start_month)) {
+  if (empty($start_month)) {
     $error = "Merci d'indiquer un mois de début.";
     } else {
         if (!preg_match('/^(0[1-9]|1[0-2])\/[0-9]{4}$/', $start_month)) {
