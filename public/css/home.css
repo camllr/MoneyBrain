@@ -1,0 +1,14 @@
+/* ------------------ */
+/* Visuel de index particulièrement */
+/* ------------------ */
+.page-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.slogan {
+  font-size: 0.9rem;
+  color: rgb(51, 49, 51);
+}

@@ -1,0 +1,15 @@
+.objectif-container {
+  align-items: center;
+}
+
+.objectif-container div {
+  display: flex;
+  gap: 1rem;
+  max-width: 400px;
+  align-items: center;
+  justify-content: center;
+}
+
+.objectif-container span {
+  font-size: 1.3rem;
+}
