@@ -55,6 +55,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
       <label for="start_month" class="sous-titre-date_debut">Mois de début</label>
       <input type="text" id="start_month" name="start_month" required placeholder="03/2026" pattern="^(0[1-9]|1[0-2])\/[0-9]{4}$">
       
+      <?php if ($error !== null): ?>
+        <p style="color: red;">
+            <?php echo htmlspecialchars($error); ?>
+        </p>
+      <?php endif; ?>
+
       <div class="button-date-debut">
         <button type="submit">Continuer</button>
       </div>

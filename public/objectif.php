@@ -46,6 +46,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="number" id="amount" name="amount" min="1" step="0.01" required>
                 <span>€</span>
             </div>
+
+            <?php if ($error !== null): ?>
+            <p style="color: red;">
+                <?php echo htmlspecialchars($error); ?>
+            </p>
+            <?php endif; ?>
+
             <button type="submit">Continuer</button>
         </form>
     </div>

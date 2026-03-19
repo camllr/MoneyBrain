@@ -41,26 +41,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="css/date_fin.css">
 
 </head>
+<header class="header-fixed">
+    <div class="header-logo">
+        <img src="images/logo_MB.png" alt="logo_MB" class="logo-img">
+        <span>MoneyBrain</span>
+    </div>
+</header>
 <body>
-
-    <h1>Jusqu'à quand souhaites-tu économiser ?</h1>
-
-    <p>Objectif actuel : <?php echo htmlspecialchars($_SESSION['objectif_montant']); ?>
-        €<br>
-        Mois de début : <?php echo htmlspecialchars($_SESSION['date_debut_mois']); ?>
-    </p>
-
-    <form action="date_fin.php" method="post">
-        <label for="end_month">Mois de fin (MM/AAAA)</label>
-        <input type="text" id="end_month" name="end_month" required placeholder="03/2026" pattern="^(0[1-9]|1[0-2])\/[0-9]{4}$">
-
-        <?php if ($error !== null): ?>
-            <p style="color: red;">
-                <?php echo htmlspecialchars($error); ?>
-            </p>
-        <?php endif; ?>
-
-        <button type="submit">Continuer</button>
-    </form>
+    <div class="container">
+        <h1>Jusqu'à quand souhaites-tu économiser ?</h1>
+    
+        <p>Objectif actuel : <?php echo htmlspecialchars($_SESSION['objectif_montant']); ?>
+            €<br>
+            Mois de début : <?php echo htmlspecialchars($_SESSION['date_debut_mois']); ?>
+        </p>
+    
+        <form action="date_fin.php" method="post">
+            <label for="end_month">Mois de fin (MM/AAAA)</label>
+            <input type="text" id="end_month" name="end_month" required placeholder="03/2026" pattern="^(0[1-9]|1[0-2])\/[0-9]{4}$">
+    
+            <?php if ($error !== null): ?>
+                <p style="color: red;">
+                    <?php echo htmlspecialchars($error); ?>
+                </p>
+            <?php endif; ?>
+    
+            <button type="submit">Continuer</button>
+        </form>
+    </div>
 </body>
 </html>
