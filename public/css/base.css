@@ -174,3 +174,8 @@ a {
 .header-logo span:first-child {
   font-size: 1.4rem;
 }
+
+.sous-titre {
+  font-size: 0.9rem;
+  color: rgb(51, 49, 51);
+}

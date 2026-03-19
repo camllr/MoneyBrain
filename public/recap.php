@@ -42,30 +42,37 @@ if ($nb_months <= 0) {
     <link rel="stylesheet" href="css/recap.css">
 
 </head>
+<header class="header-fixed">
+    <div class="header-logo">
+        <img src="images/logo_MB.png" alt="logo_MB" class="logo-img">
+        <span>MoneyBrain</span>
+    </div>
+</header>
+
 <body>
-
-    <h1>Récapitulatif de ton objectif</h1>
-
-    <p>
-        Objectif total : <?php echo htmlspecialchars($amount); ?>€<br>
-        Mois de début : <?php echo htmlspecialchars($start); ?><br>
-        Mois de fin : <?php echo htmlspecialchars($end); ?><br>
-    </p>
-
-    <?php if ($error !== null): ?>
-            <p style="color: red;">
-                <?php echo htmlspecialchars($error); ?>
-            </p>
-        <?php else: ?>
-            <p>
-                Durée : <?php echo htmlspecialchars($nb_months); ?> mois<br>
-                Épargne mensuelle nécessaire : 
-                <?php echo number_format($monthly_needed, 2, ',', ' '); ?> € / mois
-            </p>
-        <?php endif; ?>
-
-    <!-- Bouton pour continuer vers la suite (entrées du mois, plus tard) -->
-    <a href="entrees.php">Continuer vers les entrées du mois</a>
-
+    <div class="container">
+        <h1>Récapitulatif de ton objectif</h1>
+    
+        <p>
+            Objectif total : <?php echo htmlspecialchars($amount); ?>€<br>
+            Mois de début : <?php echo htmlspecialchars($start); ?><br>
+            Mois de fin : <?php echo htmlspecialchars($end); ?><br>
+        </p>
+    
+        <?php if ($error !== null): ?>
+                <p style="color: red;">
+                    <?php echo htmlspecialchars($error); ?>
+                </p>
+            <?php else: ?>
+                <p>
+                    Durée : <?php echo htmlspecialchars($nb_months); ?> mois<br>
+                    Épargne mensuelle nécessaire : 
+                    <?php echo number_format($monthly_needed, 2, ',', ' '); ?> € / mois
+                </p>
+            <?php endif; ?>
+    
+                <div>
+                    <button type="submit">Continuer</button>
+                </div>
 </body>
 </html>

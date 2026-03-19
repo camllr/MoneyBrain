@@ -51,13 +51,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container">
         <h1>Jusqu'à quand souhaites-tu économiser ?</h1>
     
-        <p class="sous-titre-date-fin">Objectif actuel : <?php echo htmlspecialchars($_SESSION['objectif_montant']); ?>
+        <p class="sous-titre">Objectif actuel : <?php echo htmlspecialchars($_SESSION['objectif_montant']); ?>
             €<br>
             Mois de début : <?php echo htmlspecialchars($_SESSION['date_debut_mois']); ?>
         </p>
     
         <form action="date_fin.php" method="post">
-            <label class="sous-titre-date-fin" for="end_month">Mois de fin (MM/AAAA)</label>
+            <label class="sous-titre" for="end_month">Mois de fin (MM/AAAA)</label>
             
             <div>
                 <input type="text" id="end_month" name="end_month" required placeholder="03/2026" pattern="^(0[1-9]|1[0-2])\/[0-9]{4}$">
@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </p>
             <?php endif; ?>
 
-                <div class="button-date-fin">
+                <div>
                     <button type="submit">Continuer</button>
                 </div>
         </form>

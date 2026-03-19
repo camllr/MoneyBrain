@@ -49,10 +49,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   <div class="container">
     <h1>Quand souhaites-tu commencer ?</h1>
   
-    <p class="sous-titre-date_debut">Objectif actuel : <?php echo htmlspecialchars($_SESSION['objectif_montant']); ?>€</p>
+    <p class="sous-titre">Objectif actuel : <?php echo htmlspecialchars($_SESSION['objectif_montant']); ?>€</p>
   
     <form action="date_debut.php" method="post">
-      <label for="start_month" class="sous-titre-date_debut">Mois de début</label>
+      <label for="start_month" class="sous-titre">Mois de début</label>
       
       <div>
         <input type="text" id="start_month" name="start_month" required placeholder="03/2026" pattern="^(0[1-9]|1[0-2])\/[0-9]{4}$">
@@ -64,7 +64,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         </p>
       <?php endif; ?>
 
-      <div class="button-date-debut">
+      <div>
         <button type="submit">Continuer</button>
       </div>
     </form>

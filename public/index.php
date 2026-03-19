@@ -22,7 +22,7 @@
   </header>
 
   <div class="page-center">
-    <p class="slogan">Commences à éconimiser avec MoneyBrain</p>
+    <p class="sous-titre">Commences à éconimiser avec MoneyBrain</p>
     <div class="container">
       <main>
         <h1>C'est le début de ton épargne avec MoneyBrain!</h1>
