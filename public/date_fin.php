@@ -41,13 +41,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="css/date_fin.css">
 
 </head>
-<header class="header-fixed">
-    <div class="header-logo">
-        <img src="images/logo_MB.png" alt="logo_MB" class="logo-img">
-        <span>MoneyBrain</span>
-    </div>
-</header>
+
 <body>
+    <header class="header-fixed">
+        <div class="header-logo">
+            <img src="images/logo_MB.png" alt="logo_MB" class="logo-img">
+            <span>MoneyBrain</span>
+        </div>
+    </header>
+
     <div class="container">
         <h1>Jusqu'à quand souhaites-tu économiser ?</h1>
     
@@ -74,5 +76,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
         </form>
     </div>
+
+    <footer class="footer-fixed">
+        <a href="date_debut.php" class="button-retour">Date Début</a>
+    </footer>
+
 </body>
 </html>

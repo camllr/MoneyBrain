@@ -57,5 +57,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
     </div>
 
+    <footer class="footer-fixed">
+        <a href="index.php" class="button-retour">Accueil</a>
+    </footer>
+
 </body>
 </html>

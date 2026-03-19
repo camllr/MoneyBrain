@@ -38,14 +38,15 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   <link rel="stylesheet" href="css/date_debut.css">
 
 </head>
-<header class="header-fixed">
-    <div class="header-logo">
-      <img src="images/logo_MB.png" alt="logo_MB" class="logo-img">
-      <span>MoneyBrain</span>
-    </div>
-</header>
 
 <body>
+  <header class="header-fixed">
+      <div class="header-logo">
+        <img src="images/logo_MB.png" alt="logo_MB" class="logo-img">
+        <span>MoneyBrain</span>
+      </div>
+  </header>
+  
   <div class="container">
     <h1>Quand souhaites-tu commencer ?</h1>
   
@@ -69,5 +70,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
     </form>
   </div>
+
+  <footer class="footer-fixed">
+        <a href="objectif.php" class="button-retour">Objectif</a>
+  </footer>
+
 </body>
 </html>

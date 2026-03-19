@@ -139,6 +139,41 @@ a.button-primary:active {
   box-shadow: none;
 }
 
+.button-retour {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1.6rem;
+  border-radius: 0 999px 999px 0;
+  border: none;
+  background: transparent;
+  color: #f9fafb;
+  box-shadow: 0px 0px 50px 10px rgba(0, 0, 0, 0.3);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease,
+    background 0.1s ease;
+  width: 100%;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-size: 1rem;
+}
+
+.button-retour:hover {
+  background: #7d8ee4;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(104, 83, 224, 0.3);
+  font-size: 1.2rem;
+}
+
+.button-retour:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
 .error-message {
   color: #f97373;
   font-size: 0.85rem;
@@ -178,4 +213,10 @@ a {
 .sous-titre {
   font-size: 0.9rem;
   color: rgb(51, 49, 51);
+}
+
+.footer-fixed {
+  position: fixed;
+  top: center;
+  left: 0;
 }

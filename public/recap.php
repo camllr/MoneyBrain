@@ -42,14 +42,15 @@ if ($nb_months <= 0) {
     <link rel="stylesheet" href="css/recap.css">
 
 </head>
-<header class="header-fixed">
-    <div class="header-logo">
-        <img src="images/logo_MB.png" alt="logo_MB" class="logo-img">
-        <span>MoneyBrain</span>
-    </div>
-</header>
 
 <body>
+    <header class="header-fixed">
+        <div class="header-logo">
+            <img src="images/logo_MB.png" alt="logo_MB" class="logo-img">
+            <span>MoneyBrain</span>
+        </div>
+    </header>
+
     <div class="container">
         <h1>Récapitulatif de ton objectif</h1>
     
@@ -74,5 +75,11 @@ if ($nb_months <= 0) {
                 <div>
                     <button type="submit">Continuer</button>
                 </div>
+    </div>
+
+    <footer class="footer-fixed">
+        <a href="date_fin.php" class="button-retour">Date Fin</a>
+    </footer>
 </body>
+
 </html>
