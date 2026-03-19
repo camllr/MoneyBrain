@@ -29,19 +29,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Quel est ton objectif d'économie ?</h1>
+    <header class="header-fixed">
+        <div class="header-logo">
+        <img src="images/logo_MB.png" alt="logo_MB" class="logo-img">
+        <span>MoneyBrain</span>
+        </div>
+    </header>
 
-    <form action="objectif.php" method="post">
-        <input type="number" id="amount" name="amount" min="1" step="0.01" required>
-        <span>€</span>
+    <div class="container">
+        <h1>Quel est ton objectif d'économie ?</h1>
+    
+        <form class="objectif-container" action="objectif.php" method="post">
+            <div>
+                <input type="number" id="amount" name="amount" min="1" step="0.01" required>
+                <span>€</span>
+            </div>
+            <button type="submit">Continuer</button>
+        </form>
+    </div>
 
-        <?php if ($error !== null): ?>
-            <p style="color: red;">
-                <?php echo htmlspecialchars($error); ?>
-            </p>
-        <?php endif; ?>
-
-        <button type="submit">Continuer</button>
-    </form>
 </body>
 </html>
