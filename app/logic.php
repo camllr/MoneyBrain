@@ -37,4 +37,23 @@ function calculerNombreMois(string $start, string $end, bool $inclusive = true):
 
     return $inclusive ? $diff + 1 : $diff;
 }
+
+
+// Calcule le nombre de mois restants à partir du mois actuel jusqu'à une date de fin MM/AAAA
+function calculerMoisRestantsDepuisAujourdhui(string $end, bool $inclusive = true): ?int {
+    $currentMonthString = date('m/Y');
+    return calculerNombreMois($currentMonthString, $end, $inclusive);
+}
+
+
+// Calcule l'épargne mensuelle nécessaire à partir d'un reste et d'une date de fin
+function calculerEpargneMensuelleNecessaire(float $resteAEpargner, string $end): ?float {
+    $nb_months = calculerMoisRestantsDepuisAujourdhui($end, true);
+
+    if ($nb_months === null || $nb_months <= 0) {
+        return null;
+    }
+
+    return $resteAEpargner / $nb_months;
+}
 ?>

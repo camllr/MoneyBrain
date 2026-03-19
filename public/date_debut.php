@@ -1,27 +1,44 @@
 <?php
 session_start();
+require_once __DIR__ . '/../app/logic.php';
 
-if(!isset($_SESSION['objectif_montant'])) {
-  // A faire : redirection vers la page précédente : objectif.php
-  header('Location: objectif.php');
-  exit();
+if (!isset($_SESSION['objectif_montant'])) {
+    header('Location: objectif.php');
+    exit();
 }
 
 $error = null;
 
-if($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $start_month = $_POST['start_month'] ?? null;
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $start_month = $_POST['start_month'] ?? null;
 
-  if (empty($start_month)) {
-    $error = "Merci d'indiquer un mois de début.";
+    if (empty($start_month)) {
+        $error = "Merci d'indiquer un mois de début.";
     } else {
+        // Validation format MM/AAAA
         if (!preg_match('/^(0[1-9]|1[0-2])\/[0-9]{4}$/', $start_month)) {
             $error = "Format invalide. Utilise le format MM/AAAA (ex : 03/2026).";
         } else {
             $_SESSION['date_debut_mois'] = $start_month;
 
-            header('Location: date_fin.php');
-            exit;
+            // Date actuelle au même format
+            $currentMonthString = date('m/Y'); // ex : "03/2026" [web:104]
+
+            // Conversion en total de mois
+            $startTotal   = convertTotalMonths($start_month);         // [cite:89]
+            $currentTotal = convertTotalMonths($currentMonthString);  // [cite:89]
+
+            if ($startTotal === null || $currentTotal === null) {
+                $error = "Erreur lors du traitement des dates.";
+            } else {
+                if ($startTotal < $currentTotal) {
+                    header('Location: economie_realisee.php');
+                    exit;
+                } else {
+                    header('Location: date_fin.php');
+                    exit;
+                }
+            }
         }
     }
 }
@@ -35,7 +52,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   <title>MoneyBrain - Date de début</title>
 
   <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/date_debut.css">
 
 </head>
 
