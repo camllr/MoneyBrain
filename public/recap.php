@@ -63,7 +63,7 @@ if ($nb_months === null || $nb_months <= 0) {
     </header>
 
     <div class="container">
-        <h1>Récapitulatif de ton objectif</h1>
+        <h1>Récapitulatif de ton objectif :</h1>
     
         <p class="sous-titre">
             Objectif total : <?php echo htmlspecialchars($objectif); ?>€<br>
