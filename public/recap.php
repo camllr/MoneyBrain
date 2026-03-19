@@ -32,13 +32,19 @@ $error = null;
 $nb_months = null;
 $monthly_needed = null;
 
-// Utilisation des fonctions de logic.php
 $nb_months = calculerMoisRestantsDepuisAujourdhui($end, true); // [cite:89]
 
 if ($nb_months === null || $nb_months <= 0) {
     $error = "Problème de calcul sur les dates. Merci de vérifier ton objectif.";
 } else {
     $monthly_needed = calculerEpargneMensuelleNecessaire($resteAEpargner, $end); // [cite:89]
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if ($error === null) {
+        header('Location: entree.php');
+        exit;
+    }
 }
 ?>
 
@@ -85,15 +91,17 @@ if ($nb_months === null || $nb_months <= 0) {
                     <?php echo number_format($monthly_needed, 2, ',', ' '); ?> € / mois
                 </p>
             <?php endif; ?>
-    
-        <div>
-            <button type="submit">Continuer</button>
-        </div>
+
+        <form action="recap.php" method="post">
+            <div>
+                <button type="submit" class="button-primary">Continuer</button>
+            </div>
+        </form>
     </div>
 
-    <footer class="footer-fixed">
-        <a href="date_fin.php" class="button-retour">Date Fin</a>
-    </footer>
+<footer class="footer-fixed">
+    <a href="date_fin.php" class="button-retour">Date Fin</a>
+</footer>
 </body>
 
 </html>

@@ -174,6 +174,49 @@ a.button-primary:active {
   box-shadow: none;
 }
 
+.button-suivant {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1.6rem;
+  border-radius: 0 999px 999px 0;
+  border: none;
+  background: transparent;
+  color: #f9fafb;
+  box-shadow: 0px 0px 50px 10px rgba(0, 0, 0, 0.3);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease,
+    background 0.1s ease;
+  width: 100%;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-size: 1rem;
+  transform: scale(-1);
+}
+
+.button-suivant:active {
+  transform: translateY(0);
+  box-shadow: none;
+  transform: scale(-1);
+}
+
+.button-suivant:hover {
+  background: #7d8ee4;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(104, 83, 224, 0.3);
+  font-size: 1.2rem;
+  transform: scale(-1);
+}
+
+.button-suivant:active {
+  transform: translateY(0);
+  box-shadow: none;
+  transform: scale(-1);
+}
 .error-message {
   color: #f97373;
   font-size: 0.85rem;
@@ -219,4 +262,45 @@ a {
   position: fixed;
   top: center;
   left: 0;
+}
+
+.section-fixed {
+  position: fixed;
+  top: center;
+  right: 0;
+}
+
+.tableau {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+table {
+  border-collapse: collapse;
+  width: 80%;
+  max-width: 800px;
+}
+
+table th,
+table td {
+  padding: 0.8rem 0.5rem;
+  text-align: center;
+}
+
+.btn-tableau-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.2rem;
+}
+
+.btn-tableau {
+  color: #7d8ee4;
+  font-weight: 600;
+}
+
+.btn-tableau:hover {
+  transform: translateY(-1px);
+  font-size: 1rem;
 }

@@ -15,18 +15,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($start_month)) {
         $error = "Merci d'indiquer un mois de début.";
     } else {
-        // Validation format MM/AAAA
         if (!preg_match('/^(0[1-9]|1[0-2])\/[0-9]{4}$/', $start_month)) {
             $error = "Format invalide. Utilise le format MM/AAAA (ex : 03/2026).";
         } else {
             $_SESSION['date_debut_mois'] = $start_month;
 
-            // Date actuelle au même format
-            $currentMonthString = date('m/Y'); // ex : "03/2026" [web:104]
+            $currentMonthString = date('m/Y');
 
-            // Conversion en total de mois
-            $startTotal   = convertTotalMonths($start_month);         // [cite:89]
-            $currentTotal = convertTotalMonths($currentMonthString);  // [cite:89]
+            $startTotal   = convertTotalMonths($start_month);         
+            $currentTotal = convertTotalMonths($currentMonthString);
 
             if ($startTotal === null || $currentTotal === null) {
                 $error = "Erreur lors du traitement des dates.";
@@ -87,9 +84,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
   </div>
 
-  <footer class="footer-fixed">
-        <a href="objectif.php" class="button-retour">Objectif</a>
-  </footer>
+<footer class="footer-fixed">
+      <a href="objectif.php" class="button-retour">Objectif</a>
+</footer>
 
 </body>
 </html>
