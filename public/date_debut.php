@@ -38,23 +38,27 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   <link rel="stylesheet" href="css/date_debut.css">
 
 </head>
+<header class="header-fixed">
+    <div class="header-logo">
+      <img src="images/logo_MB.png" alt="logo_MB" class="logo-img">
+      <span>MoneyBrain</span>
+    </div>
+</header>
+
 <body>
+  <div class="container">
+    <h1>Quand souhaites-tu commencer ?</h1>
   
-  <h1>Quand souhaites-tu commencer ?</h1>
-
-  <p>Objectif actuel : <?php echo htmlspecialchars($_SESSION['objectif_montant']); ?>€</p>
-
-  <form action="date_debut.php" method="post">
-    <label for="start_month">Mois de début</label>
-    <input type="text" id="start_month" name="start_month" required placeholder="03/2026" pattern="^(0[1-9]|1[0-2])\/[0-9]{4}$">
-
-    <?php if ($error !== null): ?>
-        <p style="color: red;">
-            <?php echo htmlspecialchars($error); ?>
-        </p>
-    <?php endif; ?>
-
-    <button type="submit">Continuer</button>
-  </form>
+    <p class="sous-titre-date_debut">Objectif actuel : <?php echo htmlspecialchars($_SESSION['objectif_montant']); ?>€</p>
+  
+    <form action="date_debut.php" method="post">
+      <label for="start_month" class="sous-titre-date_debut">Mois de début</label>
+      <input type="text" id="start_month" name="start_month" required placeholder="03/2026" pattern="^(0[1-9]|1[0-2])\/[0-9]{4}$">
+      
+      <div class="button-date-debut">
+        <button type="submit">Continuer</button>
+      </div>
+    </form>
+  </div>
 </body>
 </html>
