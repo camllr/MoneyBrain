@@ -54,7 +54,7 @@ if ($nb_months <= 0) {
     <div class="container">
         <h1>Récapitulatif de ton objectif</h1>
     
-        <p>
+        <p class="sous-titre">
             Objectif total : <?php echo htmlspecialchars($amount); ?>€<br>
             Mois de début : <?php echo htmlspecialchars($start); ?><br>
             Mois de fin : <?php echo htmlspecialchars($end); ?><br>
@@ -65,16 +65,16 @@ if ($nb_months <= 0) {
                     <?php echo htmlspecialchars($error); ?>
                 </p>
             <?php else: ?>
-                <p>
+                <p class="sous-titre">
                     Durée : <?php echo htmlspecialchars($nb_months); ?> mois<br>
                     Épargne mensuelle nécessaire : 
                     <?php echo number_format($monthly_needed, 2, ',', ' '); ?> € / mois
                 </p>
             <?php endif; ?>
     
-                <div>
-                    <button type="submit">Continuer</button>
-                </div>
+        <div>
+            <button type="submit">Continuer</button>
+        </div>
     </div>
 
     <footer class="footer-fixed">
